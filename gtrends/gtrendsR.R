@@ -1,6 +1,6 @@
-library(gtrendsR)
 #install updates to work
 devtools::install_github('PMassicotte/gtrendsR')
+library(gtrendsR)
 
 gt.us <- gtrends(c("autonomous vehicles", "self-driving"), 
                  geo="US", 
