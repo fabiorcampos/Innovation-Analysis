@@ -1,24 +1,26 @@
-# innovation_script
+# Information about the Innovation Script
 
-##Bibliometric Script
+The main idea of this script it is structure a compile of routines that could be useful for Innovation Management practices. Here, I try to combine several data mining of differents sources of data that could give sign of multiples patterns and indications to innovate. 
 
-Bibliometrix package
-Aria, Massimo and Cuccurullo, Corrado (2016). bibliometrix: a R tool for
-  comprehensive bibliometric analysis of scientific literature.
-  http://www.bibliometrix.org
+Althougt this is a introdutory analysis and this will be constantly update until the shiny dashboard finish.
 
-##Twitter Script
+The differents kinds of analysis are structure according the division below:
 
+##Bibliometric
+After download a raw data of Isi web of knowledge, the routine make bibliometric and scientometric analysis. 
 
+##Twitter
 
-##GTrends Script
+##GTrends
 
+##Patent
 
+##Web Scrape
 
-##Patent Script
+##Production and Forecast
 
+##Eurostat
 
-
-#Web Scrape Script
+##Data Routines
 
 
