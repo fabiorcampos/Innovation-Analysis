@@ -25,4 +25,3 @@ lines(density(ra, adjust = 1.5)) #adjust the line
 Inference is answering questions about population parameters based on a sample. The mean of a random sample from a population is an estimate of the population mean. Since it is a single number it is called a point estimate. It is often desirable to estimate a range within which the population parameter lies with high probability. This is called a confidence interval.
 
 One way to get confidence intervals in R is to use the quantile functions for the relevant distribution.
-
