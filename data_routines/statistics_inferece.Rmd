@@ -1,0 +1,63 @@
+---
+title: "basic_statistics"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Normal Distribution
+
+```{r n}
+
+m <- 3 # mean 
+sd <- 2 # standard deviation
+p <- 4 # prob
+#dnorm(x, mean = 0, sd = 1, log = FALSE)
+#pnorm(q, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+#qnorm(p, mean = 0, sd = 1, lower.tail = TRUE, log.p = FALSE)
+#rnorm(n, mean = 0, sd = 1)
+
+## Standard normal distribution
+rannorm <- rnorm(500)
+par(mfrow=c(1,2)) # two plots by side
+# A frequency diagram
+hist(rannorm, freq=TRUE, main="")
+hist(rannorm, freq=FALSE, main="", ylim=c(0,0.4))
+curve(dnorm(x), add=TRUE, col="blue")
+
+# A standard normal distribution
+
+curve(dnorm(x, sd=1, mean=0), from=-3, to=3,
+      ylab="Density", col="blue")
+
+# Add a t-distribution with 3 degrees of freedom.
+
+curve(dt(x, df=3), from =-3, to=3, add=TRUE, col="red")
+
+# Add a legend (with a few options, see ?legend)
+
+legend("topleft", c("Standard normal","t-distribution, df=3"), lty=1, col=c("blue","red"),
+       bty='n', cex=0.8)
+```
+
+## Inference for a single population
+
+Inference is answering questions about population parameters based on a sample. The mean of a random sample from a population is an estimate of the population mean. Since it is a single number it is called a point estimate. It is often desirable to estimate a range within which the population parameter lies with high probability. This is called a confidence interval.
+
+One way to get confidence intervals in R is to use the quantile functions for the relevant distribution.
+
+```{r inference}
+
+alpha <- 0.05 # 95% confidence interval
+xbar <- mean(rannorm)
+s <- sd(rannorm)
+n <- length(rannorm)
+half.width <- qt(1-alpha/2, n-1)*s/sqrt(n)
+
+# Confidence Interval
+c(xbar - half.width, xbar + half.width)
+```
+
+
