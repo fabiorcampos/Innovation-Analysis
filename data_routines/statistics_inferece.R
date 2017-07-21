@@ -32,3 +32,13 @@ legend("topleft", c("Standard normal","t-distribution, df=3"), lty=1, col=c("blu
 f <- 5 # degrees of freedom
 qt(0.975, f) #quantile distribution
 
+##Normal Distribution
+a <- sample(1:6, size = 20, replace = TRUE) # Create a sample (dieroll)
+ma <- mean(a) # check the mean of sample
+sda <- sd(a) # check the standard deviation
+boxplot(a) 
+
+ra <- rnorm(1000, mean = ma, sd = sda) #random normal distribution
+hist(ra, prob=TRUE)
+lines(density(ra, adjust = 1.5)) #adjust the line
+
