@@ -37,4 +37,34 @@ plot(m$quantidade,
      axes = FALSE
 ) # Simple plot
 
+### Temporal plot
+
+teste <- df.temporal[ ,-1]
+teste <- as.data.frame(teste)
+legend <- c("Tornado", "Heat", "Flashflood", "Lightstorming")
+plot_colors <- c("blue","red","black", "darkgreen")
+tornado <- teste$Tornado
+heat <- teste$Excessiveheat
+flash <- teste$flash
+light <- teste$Lightning
+
+p1 <- plot(tornado, 
+           type="o", 
+           col="blue", 
+           ylim=c(0,600), 
+           xlim=c(1,17),
+           axes=FALSE,
+           ann = FALSE)
+lines(heat, type="o", pch=22, lty=2, col="red")
+lines(flash, type="l", pch=50, lty=3, col="black")
+lines(light, type="l", pch=100, lty=4, col="darkgreen")
+box()
+axis(1, at=1:17, lab=date)
+axis(2, las=1, at=c(0, 100, 200, 300, 400, 500, 600))
+title(main="Temporal Series of Events in U.S", col.main="black", font.main=4)
+title(xlab="Years")
+title(ylab="Fatalities")
+legend(12, 600, names(teste), cex=0.8, col=plot_colors, 
+       pch=21:24, lty=1:4)
+
 

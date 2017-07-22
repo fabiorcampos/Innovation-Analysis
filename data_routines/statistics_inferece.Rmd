@@ -1,6 +1,8 @@
 ---
 title: "basic_statistics"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}

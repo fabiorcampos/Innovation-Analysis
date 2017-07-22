@@ -32,7 +32,6 @@ legend("topleft", c("Standard normal","t-distribution, df=3"), lty=1, col=c("blu
 f <- 5 # degrees of freedom
 qt(0.975, f) #quantile distribution
 
-<<<<<<< HEAD
 ##Normal Distribution
 a <- sample(1:6, size = 20, replace = TRUE) # Create a sample (dieroll)
 ma <- mean(a) # check the mean of sample
@@ -43,5 +42,6 @@ ra <- rnorm(1000, mean = ma, sd = sda) #random normal distribution
 hist(ra, prob=TRUE)
 lines(density(ra, adjust = 1.5)) #adjust the line
 
-=======
->>>>>>> f2183d04cb7cd1e84b050f4cf66d88221478353a
+## Verify the Density
+d <- density(mtcars$mpg) # returns the density data
+plot(d) # plots the results 
