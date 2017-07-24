@@ -67,4 +67,32 @@ title(ylab="Fatalities")
 legend(12, 600, names(teste), cex=0.8, col=plot_colors, 
        pch=21:24, lty=1:4)
 
+### Using functions Apply, Tapply and Lapply
+A <- matrix(1:12,nrow=3,byrow=TRUE)
+A
+
+apply(A, 1, mean) #Apply in a object a function in all ROWs(1)
+apply(A, 1, sum) #Apply in a object a function in all ROWs(1)
+apply(A, 1, sd) #Apply in a object a function in all ROWs(1)
+
+apply(A, 2, mean) #Apply in a object a function in all Columns(2)
+apply(A, 2, sum) #Apply in a object a function in all Columns(2)
+apply(A, 2, sd) #Apply in a object a function in all Columns(2)
+
+###LAPPLY
+set.seed(5)
+#Cria uma lista contendo os vetores "consumo", "peso" e um data frame "data" contendo duas colunas (a e b) com 10 linhas
+minhalista <- list( consumo=c(1.25, 1.54,1.45) , peso = c(45,50,53),data=data.frame(a=rep(1:5,each=2),b=rnorm(10)))
+#Soma todos cada um dos elementos da lista e retorna uma lista com os valores
+lapply(minhalista,sum)
+#Soma todos cada um dos elementos da lista e retorna um vetor com os valores
+sapply(minhalista,sum)
+#Soma somente as colunas do elemento data(um dataframe) retorna uma lista com os valores
+lapply(minhalista$data,sum)
+
+###TAPPLY
+consumo <- c(13.10,15.20,16.10,14.75,15.35,16.20) #cria o vetor de resposta
+grupo<-as.factor(c("15%PB","18%PB","18%PB","15%PB","15%PB","18%PB"))#cria vetor de fatores indicando o grupo experimental
+#Obtêm a média de consumo em função do concentração de PB da dieta
+tapply(consumo,grupo,mean)
 
