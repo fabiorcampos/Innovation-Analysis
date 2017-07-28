@@ -6,21 +6,21 @@ Althougt this is a introdutory analysis and this will be constantly update until
 
 The differents kinds of analysis are structure according the division below:
 
-##Bibliometric
+### Bibliometric
 After download a raw data of Isi web of knowledge, the routine make bibliometric and scientometric analysis. 
 
-##Twitter
+### Twitter
 
-##GTrends
+### GTrends
 
-##Patent
+### Patent
 
-##Web Scrape
+### Web Scrape
 
-##Production and Forecast
+### Production and Forecast
 
-##Eurostat
+### Eurostat
 
-##Data Routines
+### Data Routines
 
 
