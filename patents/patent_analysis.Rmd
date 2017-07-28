@@ -1,0 +1,52 @@
+---
+title: "Análise de Patentes - Veículos Autônomos"
+author: "Fábio Rocha Campos"
+date: "27 de julho de 2017"
+output: html_document
+---
+
+```{r setup}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introdução
+
+## Base de Dados
+
+## Metodologia e considerações
+
+### Principais depositantes
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r echo=FALSE, warning=TRUE, comment=FALSE, message=FALSE}
+library(dplyr)
+library(stringr)
+library(tm)
+library(ggplot2)
+library(wordcloud)
+library(readr)
+pat_072017 <- read_csv("pat_072017.csv")
+df <- as.data.frame(pat_072017)
+ae <- as.character(df$AE) 
+ae <- str_replace(ae, " \\(.*\\)", "") ### Remove desnecessary text
+ae <- as.data.frame(table(ae)) ### combine all elements and make a freq
+ae <- ae[order(ae$Freq, decreasing = TRUE), ] ### put in order decreasing
+ae <- subset(ae, Freq >= 9, select = c(ae, Freq)) ### create a subset
+print(ae)
+```
+
+```{r warning=TRUE, comment=FALSE, message=FALSE}
+hc <- hclust(dist(ae)) ### Create
+plot(hc, labels = ae$ae, main = "Cluster Dendogram", xlab = "Companies", 
+     ylab = "Height", hang=-50, cex=.40) 
+```
+
+### Análise de Palavras-chaves
+
+### Mineração de Textos (Título e Descrição)
+
+### Análise de citações
+Importante para ver a trajetória tecnológica. 
