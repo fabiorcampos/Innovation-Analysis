@@ -30,17 +30,15 @@ dc <- str_replace(dc, " \\(.*\\)", "")
 dc <- as.data.frame(table(dc))
 dc <- dc[order(dc$Freq, decreasing = TRUE), ]
 dc <- subset(dc, Freq >= 20, select = c(dc, Freq)) ### create a subset
+dc <- mutate(cummean(dc$Freq))
+sumdc <- as.numeric(c(dc$Freq))
+sdc <- sum(sumdc)
+mutate(dc, prop = sumdc / sdc)
 print(dc)
 
 # Dendrogram Keywords
 dchc <- hclust(dist(dc)) ### Create
 plot(dchc, labels = dc$dc, main = "Cluster Dendogram", xlab = "Kewys", 
      ylab = "Height", hang=-50, cex=.60) 
-
-# Text Mining in Title
-
-
-
-# Text Mining in Abstract
 
 
